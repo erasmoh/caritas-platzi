@@ -12,6 +12,10 @@ type WallRealtimeProps = {
   supabaseConfig: SupabaseBrowserConfig | null;
 };
 
+type WallApiResponse = {
+  images?: unknown;
+};
+
 function hashString(value: string) {
   let hash = 0;
 
@@ -57,6 +61,13 @@ function isWallImageRecord(value: unknown): value is WallImageRecord {
   );
 }
 
+function mergeWallImages(currentImages: WallImageRecord[], incomingImages: WallImageRecord[]) {
+  const currentIds = new Set(currentImages.map((image) => image.id));
+  const newImages = incomingImages.filter((image) => !currentIds.has(image.id));
+
+  return newImages.length > 0 ? [...newImages, ...currentImages] : currentImages;
+}
+
 function WallImageCounter({ count }: { count: number }) {
   return (
     <div className="pointer-events-none absolute left-5 top-36 z-50 bg-black/70 px-4 py-3 font-mono text-[#f7df1e] shadow-[6px_6px_0_#000] backdrop-blur-sm sm:left-8 sm:top-48 sm:px-5 sm:py-4">
@@ -72,6 +83,40 @@ function WallImageCounter({ count }: { count: number }) {
 
 export default function WallRealtime({ configured, initialImages, supabaseConfig }: WallRealtimeProps) {
   const [images, setImages] = useState(() => initialImages);
+
+  useEffect(() => {
+    if (!configured) {
+      return;
+    }
+
+    const refreshImages = async () => {
+      try {
+        const response = await fetch("/api/wall", {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const data = (await response.json()) as WallApiResponse;
+
+        if (!Array.isArray(data.images)) {
+          return;
+        }
+
+        const validImages = data.images.filter(isWallImageRecord);
+
+        setImages((currentImages) => mergeWallImages(currentImages, validImages));
+      } catch {
+        return;
+      }
+    };
+
+    const interval = window.setInterval(refreshImages, 3500);
+
+    return () => window.clearInterval(interval);
+  }, [configured]);
 
   useEffect(() => {
     if (!configured || !supabaseConfig) {
@@ -111,10 +156,10 @@ export default function WallRealtime({ configured, initialImages, supabaseConfig
     };
   }, [configured, supabaseConfig]);
 
-  if (!configured || !supabaseConfig) {
+  if (!configured) {
     return (
       <div className="relative z-10 flex min-h-dvh items-center justify-center p-6 text-center text-yellow-100">
-        Falta configurar Supabase para cargar el muro en tiempo real.
+        Falta configurar Supabase para cargar el muro.
       </div>
     );
   }
