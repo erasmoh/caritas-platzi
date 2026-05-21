@@ -12,7 +12,8 @@ const DEFAULT_EVENT_UNLOCK_AT = "2026-05-21T00:00:00-05:00";
 const EVENT_UNLOCK_AT = process.env.NEXT_PUBLIC_EVENT_UNLOCK_AT ?? DEFAULT_EVENT_UNLOCK_AT;
 const DEV_UNLOCK_COOKIE = "platzi_dev_unlock";
 const PLATZI_GREEN = "#98CA3F";
-const INK = "#111111";
+const PLATZI_NAVY = "#121F3D";
+const INK = PLATZI_NAVY;
 const COMIC_WHITE = "#f8f8f2";
 const COMIC_GRAY = "#8f8f86";
 const PIXEL_FONT: Record<string, string[]> = {
@@ -372,7 +373,7 @@ function captureSourceImage(video: HTMLVideoElement) {
     dx = (width - dw) / 2;
   }
 
-  context.fillStyle = "#0f0f0f";
+  context.fillStyle = "#121F3D";
   context.fillRect(0, 0, width, height);
   context.translate(width, 0);
   context.scale(-1, 1);
@@ -750,7 +751,7 @@ export default function PhotoCardStudio() {
 
   if (gateLocked) {
     return (
-      <main className="flex min-h-dvh flex-col bg-[#0f0f0f] text-white">
+      <main className="flex min-h-dvh flex-col bg-[#121F3D] text-white">
         <section className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-8 px-5 py-10 text-center">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#98CA3F]/50 bg-[#98CA3F]/10 px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#98CA3F]">
             Platzi Live · {EVENT_DATE}
@@ -803,7 +804,7 @@ export default function PhotoCardStudio() {
   }
 
   return (
-    <main className="flex min-h-dvh flex-col bg-[#0f0f0f] text-white">
+    <main className="flex min-h-dvh flex-col bg-[#121F3D] text-white">
       <section className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-5 py-6 sm:px-8 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-10">
         <div className="flex flex-col gap-5">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#98CA3F]/50 bg-[#98CA3F]/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.24em] text-[#98CA3F]">
@@ -835,7 +836,7 @@ export default function PhotoCardStudio() {
               <button
                 type="button"
                 onClick={startCamera}
-                className="rounded-xl bg-[#98CA3F] px-4 py-3 text-sm font-black uppercase tracking-[0.14em] text-black transition hover:scale-[1.01] hover:bg-green-400"
+                className="rounded-xl bg-[#98CA3F] px-4 py-3 text-sm font-black uppercase tracking-[0.14em] text-[#121F3D] transition hover:scale-[1.01] hover:bg-green-400"
               >
                 {cameraReady ? "Reactivar cámara" : "Activar cámara"}
               </button>
@@ -843,7 +844,7 @@ export default function PhotoCardStudio() {
                 type="button"
                 onClick={captureCard}
                 disabled={!cameraReady || !canGenerate}
-                className="rounded-xl border-2 border-[#98CA3F] px-4 py-3 text-sm font-black uppercase tracking-[0.14em] text-[#98CA3F] transition hover:scale-[1.01] hover:bg-[#98CA3F] hover:text-black disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:hover:bg-transparent disabled:hover:text-[#98CA3F]"
+                className="rounded-xl border-2 border-[#98CA3F] px-4 py-3 text-sm font-black uppercase tracking-[0.14em] text-[#98CA3F] transition hover:scale-[1.01] hover:bg-[#98CA3F] hover:text-[#121F3D] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100 disabled:hover:bg-transparent disabled:hover:text-[#98CA3F]"
               >
                 {isGenerating
                   ? "Generando..."
@@ -859,7 +860,7 @@ export default function PhotoCardStudio() {
                 type="button"
                 onClick={downloadCard}
                 disabled={!capturedImage}
-                className="rounded-lg border border-[#98CA3F] px-3 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-[#98CA3F] transition hover:bg-[#98CA3F] hover:text-black disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-[#98CA3F]"
+                className="rounded-lg border border-[#98CA3F] px-3 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-[#98CA3F] transition hover:bg-[#98CA3F] hover:text-[#121F3D] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-[#98CA3F]"
               >
                 Descargar
               </button>
@@ -882,10 +883,10 @@ export default function PhotoCardStudio() {
 
         <div className="mx-auto w-full max-w-[430px] lg:max-w-[460px]">
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-3 shadow-2xl">
-            <div className="relative aspect-[2/3] overflow-hidden rounded-[1.55rem] border-[10px] border-[#98CA3F] bg-black font-mono">
+            <div className="relative aspect-[2/3] overflow-hidden rounded-[1.55rem] border-[10px] border-[#98CA3F] bg-[#121F3D] font-mono">
               <video
                 ref={videoRef}
-                className="absolute inset-0 h-full w-full scale-x-[-1] bg-black object-contain"
+                className="absolute inset-0 h-full w-full scale-x-[-1] bg-[#121F3D] object-contain"
                 muted
                 playsInline
                 autoPlay
@@ -900,8 +901,8 @@ export default function PhotoCardStudio() {
                   className="object-cover"
                 />
               ) : (
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent px-4 pb-5 pt-20 text-center">
-                  <span className="mb-2 inline-flex bg-[#98CA3F] px-3 py-1 text-xs font-black tracking-[0.18em] text-black">
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#121F3D] via-[#121F3D]/80 to-transparent px-4 pb-5 pt-20 text-center">
+                  <span className="mb-2 inline-flex bg-[#98CA3F] px-3 py-1 text-xs font-black tracking-[0.18em] text-[#121F3D]">
                     {EVENT_DATE}
                   </span>
                   <p className="text-xl font-black tracking-[0.02em] text-[#98CA3F]">
@@ -910,7 +911,7 @@ export default function PhotoCardStudio() {
                 </div>
               )}
               {isGenerating && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/72 px-8 text-center backdrop-blur-[2px]">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#121F3D]/72 px-8 text-center backdrop-blur-[2px]">
                   <div className="flex items-center gap-3">
                     {Array.from({ length: 4 }).map((_, index) => (
                       <span
@@ -959,7 +960,7 @@ export default function PhotoCardStudio() {
         </a>
       </footer>
       {isShareDialogOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-5 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#121F3D]/75 px-5 backdrop-blur-sm">
           <div
             role="dialog"
             aria-modal="true"
@@ -967,7 +968,7 @@ export default function PhotoCardStudio() {
             className="w-full max-w-md rounded-[2rem] border border-[#98CA3F]/50 bg-[#111] p-6 text-white shadow-2xl"
           >
             <div className="space-y-4">
-              <div className="inline-flex rounded-full bg-[#98CA3F] px-3 py-1 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-black">
+              <div className="inline-flex rounded-full bg-[#98CA3F] px-3 py-1 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-[#121F3D]">
                 Confirmación
               </div>
               <h2 id="share-wall-title" className="text-2xl font-black leading-tight text-[#98CA3F]">
@@ -991,7 +992,7 @@ export default function PhotoCardStudio() {
                 type="button"
                 onClick={shareToWall}
                 disabled={isSharing}
-                className="rounded-xl bg-[#98CA3F] px-4 py-3 text-xs font-black uppercase tracking-[0.14em] text-black transition hover:bg-green-400 disabled:cursor-not-allowed disabled:opacity-60"
+                className="rounded-xl bg-[#98CA3F] px-4 py-3 text-xs font-black uppercase tracking-[0.14em] text-[#121F3D] transition hover:bg-green-400 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isSharing ? "Enviando..." : "Sí, enviar"}
               </button>
