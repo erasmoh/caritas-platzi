@@ -1,4 +1,4 @@
-# Contribuir a Caritas en 16-bit
+# Contribuir a Caritas Platzi
 
 ¡Gracias por querer aportar! Este es un proyecto comunitario, así que cualquier ayuda — desde un typo en el README hasta una feature nueva — es bienvenida.
 

@@ -52,13 +52,13 @@ export default async function MuroPage() {
 
       <header className="pointer-events-none absolute inset-x-0 top-0 z-50 flex items-start justify-between gap-6 bg-gradient-to-b from-[#0f0f0f]/92 via-[#0f0f0f]/55 to-transparent p-5 pb-20 sm:p-8 sm:pb-24">
         <h1
-          className="max-w-[calc(100%-8rem)] text-4xl font-black uppercase leading-[0.98] tracking-[0.08em] text-[#f7df1e] [font-variant-ligatures:none] [text-shadow:4px_4px_0_#000] sm:max-w-[calc(100%-11rem)] sm:text-6xl lg:text-7xl"
+          className="max-w-[calc(100%-8rem)] text-4xl font-black uppercase leading-[0.98] tracking-[0.08em] text-[#98CA3F] [font-variant-ligatures:none] [text-shadow:4px_4px_0_#000] sm:max-w-[calc(100%-11rem)] sm:text-6xl lg:text-7xl"
           style={{
             fontFamily:
               "'Courier New', Courier, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace",
           }}
         >
-          MURO DEL MEETUP DE JS CHILE
+          MURO DE PLATZI LIVE
         </h1>
         <div className="shrink-0 bg-white p-2 shadow-[0_18px_55px_rgba(0,0,0,0.55)] sm:p-3">
           <Image
@@ -83,16 +83,16 @@ export default async function MuroPage() {
           href="https://erasmoh.dev"
           target="_blank"
           rel="noreferrer"
-          className="font-black text-[#f7df1e] underline decoration-[#f7df1e]/40 underline-offset-4 transition hover:text-yellow-200"
+          className="font-black text-[#98CA3F] underline decoration-[#98CA3F]/40 underline-offset-4 transition hover:text-green-300"
         >
           @ErasmoHernandez
         </a>
-        , con amor para la comunidad JS Chile ·{" "}
+        , con amor para Platzi Live ·{" "}
         <a
           href="https://erasmoh.dev"
           target="_blank"
           rel="noreferrer"
-          className="font-black text-white underline decoration-white/30 underline-offset-4 transition hover:text-[#f7df1e]"
+          className="font-black text-white underline decoration-white/30 underline-offset-4 transition hover:text-[#98CA3F]"
         >
           erasmoh.dev
         </a>

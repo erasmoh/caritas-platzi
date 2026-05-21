@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JS Chile Meetup Card",
-  description: "Captura una foto y conviértela en una card comic/pixel de JS Chile Meetup.",
+  title: "Platzi Live Card",
+  description: "Captura una foto y conviértela en una card 16-bit de Platzi Live.",
 };
 
 export default function RootLayout({

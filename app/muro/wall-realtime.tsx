@@ -70,11 +70,11 @@ function mergeWallImages(currentImages: WallImageRecord[], incomingImages: WallI
 
 function WallImageCounter({ count }: { count: number }) {
   return (
-    <div className="pointer-events-none absolute left-5 top-36 z-50 bg-black/70 px-4 py-3 font-mono text-[#f7df1e] shadow-[6px_6px_0_#000] backdrop-blur-sm sm:left-8 sm:top-48 sm:px-5 sm:py-4">
+    <div className="pointer-events-none absolute left-5 top-36 z-50 bg-black/70 px-4 py-3 font-mono text-[#98CA3F] shadow-[6px_6px_0_#000] backdrop-blur-sm sm:left-8 sm:top-48 sm:px-5 sm:py-4">
       <div className="text-4xl font-black leading-none tracking-[0.08em] sm:text-6xl">
         {String(count).padStart(3, "0")}
       </div>
-      <div className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-yellow-100 sm:text-xs">
+      <div className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-green-100 sm:text-xs">
         imágenes en el muro
       </div>
     </div>
@@ -158,7 +158,7 @@ export default function WallRealtime({ configured, initialImages, supabaseConfig
 
   if (!configured) {
     return (
-      <div className="relative z-10 flex min-h-dvh items-center justify-center p-6 text-center text-yellow-100">
+      <div className="relative z-10 flex min-h-dvh items-center justify-center p-6 text-center text-green-100">
         Falta configurar Supabase para cargar el muro.
       </div>
     );
@@ -170,7 +170,7 @@ export default function WallRealtime({ configured, initialImages, supabaseConfig
         <WallImageCounter count={images.length} />
         <div className="relative z-10 flex min-h-dvh items-center justify-center p-8 text-center">
           <div className="max-w-md space-y-3">
-            <p className="text-3xl font-black text-[#f7df1e]">Aún no hay cards en el muro</p>
+            <p className="text-3xl font-black text-[#98CA3F]">Aún no hay cards en el muro</p>
             <p className="text-sm leading-6 text-zinc-400">
               Cuando alguien autorice compartir su imagen generada, aparecerá aquí.
             </p>

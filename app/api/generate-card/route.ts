@@ -7,9 +7,9 @@ const DEFAULT_GATEWAY_MODEL = "google/gemini-3-pro-image";
 const DEFAULT_OPENAI_MODEL = "gpt-image-1";
 const MAX_IMAGE_LENGTH = 10 * 1024 * 1024;
 const AI_GENERATION_COOLDOWN_MS = 60_000;
-const DEFAULT_EVENT_UNLOCK_AT = "2026-04-30T00:00:00-04:00";
+const DEFAULT_EVENT_UNLOCK_AT = "2026-05-21T00:00:00-05:00";
 const EVENT_UNLOCK_AT = process.env.NEXT_PUBLIC_EVENT_UNLOCK_AT ?? DEFAULT_EVENT_UNLOCK_AT;
-const DEV_UNLOCK_COOKIE = "js_chile_dev_unlock";
+const DEV_UNLOCK_COOKIE = "platzi_dev_unlock";
 const generationCooldowns = new Map<string, number>();
 
 const prompt = `
@@ -17,7 +17,7 @@ Transform the provided selfie into a premium 16-bit pixel portrait for a vertica
 Preserve the person's likeness, face shape, hair, expression, pose, skin tone relationships, and main identifying features.
 The output must look like intentionally hand-crafted 16-bit pixel art, not a filtered photograph.
 Use chunky pixel shapes, crisp stair-stepped edges, simplified facial features, graphic clusters of light and shadow, and controlled dithering.
-Use a constrained JavaScript-inspired palette: black, white, warm gray, dark gray, and JavaScript yellow #f7df1e.
+Use a constrained Platzi-inspired palette: black, white, warm gray, dark gray, and Platzi green #98CA3F.
 Make it a centered bust portrait with a clean simple background, strong silhouette, enough headroom, visible shoulders, and empty lower space for an event overlay.
 Do not add text, logos, dates, captions, labels, borders, or extra people.
 Avoid photorealism, smooth gradients, painterly brush strokes, anime style, 3D render, and realistic camera blur.
@@ -241,7 +241,7 @@ export async function POST(request: Request) {
   if (!isEventGateOpen(request)) {
     return jsonResponse(
       {
-        error: "La generación estará disponible el 30 de abril.",
+        error: "La generación estará disponible el 21 de mayo.",
       },
       { status: 403 },
     );
