@@ -62,7 +62,7 @@ export default async function MuroPage() {
         </h1>
         <div className="shrink-0 bg-white p-2 shadow-[0_18px_55px_rgba(0,0,0,0.55)] sm:p-3">
           <Image
-            src="/qr.png"
+            src="/qr-platzi.png"
             alt="QR para generar tu imagen"
             width={144}
             height={144}
