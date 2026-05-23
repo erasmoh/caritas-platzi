@@ -1,8 +1,8 @@
-# Caritas Platzi
+# Caritas BUILD WITH AI Medellin
 
-Webapp móvil para capturar una selfie, convertirla en una card vertical estilo comic/pixel con paleta Platzi y descargarla como PNG. Las cards generadas pueden compartirse opcionalmente a un muro en vivo (`/muro`) que se actualiza en tiempo real durante el evento.
+Webapp móvil para capturar una selfie, convertirla en una card vertical estilo comic/pixel con paleta Google y descargarla como PNG. Las cards generadas pueden compartirse opcionalmente a un muro en vivo (`/muro`) que se actualiza en tiempo real durante el evento.
 
-Construido para la comunidad de **Platzi Live**, liberado como open source bajo licencia [MIT](./LICENSE) para que cualquier meetup, hackathon o comunidad pueda forkearlo y adaptarlo.
+Adaptado para **BUILD WITH AI Medellin · 23 de Mayo**, liberado como open source bajo licencia [MIT](./LICENSE) para que cualquier meetup, hackathon o comunidad pueda forkearlo y adaptarlo.
 
 ## Stack
 
@@ -15,7 +15,7 @@ Construido para la comunidad de **Platzi Live**, liberado como open source bajo 
 ## Funcionalidades
 
 - Captura de selfie desde la cámara del dispositivo (móvil o desktop).
-- Renderizado local en `<canvas>` con paleta Platzi (estilo 16-bit).
+- Renderizado local en `<canvas>` con paleta Google (estilo 16-bit).
 - (Opcional) post-procesado por IA para un retrato pixel art más rico.
 - Descarga del PNG final.
 - (Opcional) compartir al muro público del evento, con feed en tiempo real.
@@ -42,7 +42,7 @@ Todas viven en `.env.local`. Ver [`.env.example`](./.env.example) para la lista 
 
 | Variable | Requerida | Para qué |
 |---|---|---|
-| `NEXT_PUBLIC_EVENT_UNLOCK_AT` | no | ISO-8601 de cuándo se "abre" el evento. Default `2026-05-21T00:00:00-05:00`. |
+| `NEXT_PUBLIC_EVENT_UNLOCK_AT` | no | ISO-8601 de cuándo se "abre" el evento. Default `2026-05-23T00:00:00-05:00`. |
 | `SUPABASE_URL` | solo para `/muro` | URL del proyecto Supabase. |
 | `SUPABASE_PUBLISHABLE_KEY` | solo para `/muro` | Publishable / anon key. |
 | `SUPABASE_SERVICE_ROLE_KEY` | no | Solo si necesitas bypass de RLS desde el server. **No** la prefijes con `NEXT_PUBLIC_`. |
@@ -125,4 +125,4 @@ PRs y issues bienvenidos. Lee [CONTRIBUTING.md](./CONTRIBUTING.md) para los line
 
 ## Créditos
 
-Creado originalmente por [@ErasmoHernandez](https://erasmoh.dev) con amor para la comunidad de **Platzi Live**. Si forkeas el proyecto para tu propio evento, eres libre de cambiar la atribución del footer en `app/photo-card-studio.tsx` y `app/muro/page.tsx`.
+Creado originalmente por [@ErasmoHernandez](https://erasmoh.dev) con amor para la comunidad. Adaptado para **BUILD WITH AI Medellin**. Si forkeas el proyecto para tu propio evento, eres libre de cambiar la atribución del footer en `app/photo-card-studio.tsx` y `app/muro/page.tsx`.
